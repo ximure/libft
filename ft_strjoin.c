@@ -6,7 +6,7 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 18:11:58 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/15 16:06:18 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/17 19:49:14 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);
 	len = s1len + s2len;
-	temp = (char *)malloc(len);
+	temp = (char *)malloc(len + 1);
 	if (!temp)
 		return (NULL);
 	while (s1len--)

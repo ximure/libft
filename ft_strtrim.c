@@ -6,7 +6,7 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:57:56 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/17 19:28:56 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/17 19:57:57 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ int		ft_set(char c, char const *set)
 	}
 	return (0);
 }
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		end;
-	int		len;
 
 	if (!s1)
 		return (NULL);
 	i = 0;
-	len = ft_strlen(s1);
 	end = ft_strlen(s1) - 1;
 	while (s1[i] != '\0')
 	{
