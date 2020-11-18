@@ -1,36 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:11:58 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/18 16:28:09 by tmarei           ###   ########.fr       */
+/*   Created: 2020/11/18 15:22:46 by tmarei            #+#    #+#             */
+/*   Updated: 2020/11/18 17:12:25 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int		ft_len(int s)
 {
-	int		s1len;
-	int		s2len;
-	int		len;
-	char	*temp;
+	int i;
+	while (s)
+		i++;
+	return (i);
+}
 
-	if (!s1 || !s2)
+char	*ft_itoa(int n)
+{
+	char *str;
+
+	if (!(str = malloc(ft_len(n) * sizeof(char))))
 		return (NULL);
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	len = s1len + s2len;
-	temp = (char *)malloc(len + 1);
-	if (!temp)
-		return (NULL);
-	while (s1len--)
-		*temp++ = *s1++;
-	while (s2len--)
-		*temp++ = *s2++;
-	*temp = '\0';
-	return (&temp[-len]);
+	if (n >= 0 && str)
+	{
+		*--str = 48 + (n % 10);
+		n /= 10;
+		while (n != 0)
+		{
+			*--str = 48 + (n % 10);
+			n /= 10;
+		}
+	}
+	else if (str)
+	{
+		*--str = 48 - (n % 10);
+		n /= 10;
+		while (n != 0)
+		{
+			*--str = 48 - (n % 10);
+			n /= 10;
+		}
+		*--str = '-';
+	}
+	return (ft_strdup(str));
 }

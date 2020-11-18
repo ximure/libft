@@ -6,7 +6,7 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:57:56 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/17 19:57:57 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/18 15:04:14 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end--;
 	}
 	if (end < i)
-		return ("");
+		return (ft_substr(s1, i, (end)));
 	return (ft_substr(s1, i, (end - i + 1)));
 }

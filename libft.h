@@ -6,7 +6,7 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 22:57:25 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/17 21:33:54 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/18 15:32:20 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strchr(const char *s, int c);
+char	*ft_itoa(int n);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strdup(const char *s1);
