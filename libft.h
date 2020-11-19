@@ -6,12 +6,15 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 22:57:25 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/18 15:32:20 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/19 17:16:36 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define true 1
+# define false 0
 
 # include <unistd.h>
 # include <stddef.h>
@@ -47,6 +50,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);

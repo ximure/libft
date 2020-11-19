@@ -5,64 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 15:22:46 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/19 15:02:40 by ximure           ###   ########.fr       */
+/*   Created: 2020/11/19 16:52:36 by tmarei            #+#    #+#             */
+/*   Updated: 2020/11/19 17:12:39 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_len(int nbr)
+char	*ft_strnew(size_t size)
 {
-	int	count;
+	char *str;
 
-	count = 0;
-	if (nbr == 0)
+	if (!(str = (char *)malloc((size + 1) * sizeof(char))))
+		return (NULL);
+	if (true)
 	{
-		count = 1;
-		return (count);
+		ft_bzero(str, size + 1);
+		return (str);
 	}
-	if (nbr < 0)
-		count++;
-	while (nbr != 0)
-	{
-		nbr /= 10;
-		count++;
-	}
-	return (count);
+	return (NULL);
 }
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		len;
-	char	*temp;
-	char	*digits;
+	int		length;
+	int		sign;
+	char	*s;
 
-	len = ft_len(n);
+	sign = n;
+	length = 1;
+	while (sign /= 10)
+		length++;
+	sign = n < 0 ? 1 : 0;
+	length = n < 0 ? length += 1 : length;
 	if (n == -2147483648)
-		return (temp = ft_strdup("-2147483648"));
-	if (!(temp = malloc((len + 1) * sizeof(char))))
+		return (s = ft_strdup("-2147483648"));
+	s = ft_strnew(length);
+	if (!s)
 		return (NULL);
-	if (n < 0)
+	if (sign)
+		s[0] = '-';
+	n = n < 0 ? n *= -1 : n;
+	while (--length >= sign)
 	{
-		temp[0] = '-';
-		n = -n;
-		digits = temp + 1;
-		i = len - 1;
-	}
-	else
-	{
-		digits = temp;
-		i = len;
-	}
-	while (1)
-	{
-		--i;
-		digits[i] = (n % 10) + '0';
+		s[length] = (n >= 10) ? (n % 10) + 48 : n + 48;
 		n /= 10;
-		if (!i)
-			break ;
 	}
-	return (ft_strdup(temp));
+	s[ft_strlen(s)] = '\0';
+	return (s);
 }
