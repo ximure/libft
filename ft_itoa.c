@@ -6,21 +6,17 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:22:46 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/18 17:12:25 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/19 15:02:40 by ximure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
 int		ft_len(int nbr)
 {
 	int	count;
 
 	count = 0;
-	//printf("nbr (ft_len) = %d\n", nbr);
 	if (nbr == 0)
 	{
 		count = 1;
@@ -33,42 +29,40 @@ int		ft_len(int nbr)
 		nbr /= 10;
 		count++;
 	}
-	printf("count (ft_len) = %d\n", count);
 	return (count);
 }
 
 char	*ft_itoa(int n)
 {
 	int		i;
+	int		len;
 	char	*temp;
+	char	*digits;
 
-	i = ft_len(n);
-	printf("count (ft_itoa) = %d\n", i);
+	len = ft_len(n);
 	if (n == -2147483648)
-	{
-		temp = "-2147483648";
-		//return (ft_strdup(temp));
-		return (temp);
-	}
-	if (!(temp = malloc((i + 1) * sizeof(char))))
+		return (temp = ft_strdup("-2147483648"));
+	if (!(temp = malloc((len + 1) * sizeof(char))))
 		return (NULL);
 	if (n < 0)
 	{
 		temp[0] = '-';
-		n *= -1;
+		n = -n;
+		digits = temp + 1;
+		i = len - 1;
 	}
-	while (--i)
+	else
 	{
-		temp[i] = (n % 10) + '0';
-		n /= 10;
+		digits = temp;
+		i = len;
 	}
-	//return (ft_strdup(temp));
-	return (temp);
-}
-
-int		main()
-{
-	printf("(-2147483647) = %s\n", ft_itoa(-2147483647));
-	printf("(2147483647) = %s\n", ft_itoa(2147483647));
-	printf("(0) = %s\n", ft_itoa(0));
+	while (1)
+	{
+		--i;
+		digits[i] = (n % 10) + '0';
+		n /= 10;
+		if (!i)
+			break ;
+	}
+	return (ft_strdup(temp));
 }
