@@ -19,11 +19,11 @@ char	*ft_strdup(const char *s1)
 	int		size;
 
 	size = 0;
-	i = 0;
 	while (s1[size])
 		size++;
 	if (!(temp = malloc((size + 1) * sizeof(char))))
 		return (NULL);
+	i = 0;
 	while (s1[i])
 	{
 		temp[i] = s1[i];

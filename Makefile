@@ -23,4 +23,7 @@ fclean: clean
 
 re: fclean $(NAME)
 
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC); gcc -shared -o libft.so $(OBJ)
+
 .PHONY: all clean fclean re
