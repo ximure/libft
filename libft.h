@@ -6,15 +6,12 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 22:57:25 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/19 17:16:36 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/21 16:39:38 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-# define true 1
-# define false 0
 
 # include <unistd.h>
 # include <stddef.h>
@@ -42,7 +39,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-char    *ft_itoa(int n);
+char	*ft_itoa(int n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strtrim(char const *s1, char const *set);

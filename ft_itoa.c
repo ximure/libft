@@ -6,7 +6,7 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:52:36 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/19 17:12:39 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/11/21 16:39:26 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnew(size_t size)
 
 	if (!(str = (char *)malloc((size + 1) * sizeof(char))))
 		return (NULL);
-	if (true)
+	if (1)
 	{
 		ft_bzero(str, size + 1);
 		return (str);
