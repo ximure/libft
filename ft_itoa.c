@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 16:52:36 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/21 16:39:26 by tmarei           ###   ########.fr       */
+/*   Created: 2020/11/23 20:17:22 by tmarei            #+#    #+#             */
+/*   Updated: 2020/11/23 20:17:25 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ char	*ft_strnew(size_t size)
 {
 	char *str;
 
-	if (!(str = (char *)malloc((size + 1) * sizeof(char))))
-		return (NULL);
-	if (1)
+	str = (char *)malloc((size + 1) * sizeof(char));
+	if (str)
 	{
 		ft_bzero(str, size + 1);
 		return (str);
@@ -26,31 +25,31 @@ char	*ft_strnew(size_t size)
 	return (NULL);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int nbr)
 {
 	int		length;
 	int		sign;
-	char	*s;
+	char	*str;
 
-	sign = n;
+	sign = nbr;
 	length = 1;
 	while (sign /= 10)
 		length++;
-	sign = n < 0 ? 1 : 0;
-	length = n < 0 ? length += 1 : length;
-	if (n == -2147483648)
-		return (s = ft_strdup("-2147483648"));
-	s = ft_strnew(length);
-	if (!s)
+	sign = nbr < 0 ? 1 : 0;
+	length = nbr < 0 ? length += 1 : length;
+	if (nbr == -2147483648)
+		return (str = ft_strdup("-2147483648"));
+	str = ft_strnew(length);
+	if (!str)
 		return (NULL);
 	if (sign)
-		s[0] = '-';
-	n = n < 0 ? n *= -1 : n;
+		str[0] = '-';
+	nbr = nbr < 0 ? nbr *= -1 : nbr;
 	while (--length >= sign)
 	{
-		s[length] = (n >= 10) ? (n % 10) + 48 : n + 48;
-		n /= 10;
+		str[length] = (nbr >= 10) ? (nbr % 10) + 48 : nbr + 48;
+		nbr /= 10;
 	}
-	s[ft_strlen(s)] = '\0';
-	return (s);
+	str[ft_strlen(str)] = '\0';
+	return (str);
 }
