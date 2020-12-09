@@ -6,7 +6,7 @@
 /*   By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 22:57:25 by tmarei            #+#    #+#             */
-/*   Updated: 2020/11/21 16:39:38 by tmarei           ###   ########.fr       */
+/*   Updated: 2020/12/02 20:19:39 by tmarei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_calloc(size_t count, size_t size);
-void	ft_putchar_fd(char c, int fd);
+void	ft_putchar_fd(const char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
