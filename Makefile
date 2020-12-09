@@ -6,13 +6,20 @@
 #    By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 20:12:12 by tmarei            #+#    #+#              #
-#    Updated: 2020/12/02 20:40:04 by tmarei           ###   ########.fr        #
+#    Updated: 2020/12/09 16:28:54 by tmarei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Directories, names, cflags etc #
+OBJDIR = obj
+SRCDIR = src
 NAME = libft.a
+HEADER = libft.h
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+
+# OBJ & SRC files #
 OBJ = $(SRC:.c=.o)
 SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	  ft_isdigit.c ft_isprint.c ft_itoa.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
@@ -22,15 +29,16 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	  ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
 	  ft_tolower.c ft_toupper.c
 
+# rules #
 all:
-	@mv libft.h src; cd src; $(CC) -c $(SRC); ar rc $(NAME) $(OBJ);
-	@cd src; mv libft.h ..; mv libft.a ..; mv $(OBJ) ../obj
+	@mv $(HEADER) $(SRCDIR); cd $(SRCDIR); $(CC) -c $(SRC); ar rc $(NAME) $(OBJ); \
+	mv $(HEADER) ..; mv $(NAME) ..; mkdir ../obj; mv $(OBJ) ../obj
 
 clean:
-	@cd obj; rm -f $(OBJ)
+	@rm -rf obj
 
 fclean: clean
-	@rm -f libft.a
+	@$(RM) $(NAME)
 
 re: fclean all
 
