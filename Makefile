@@ -6,7 +6,7 @@
 #    By: tmarei <tmarei@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 20:12:12 by tmarei            #+#    #+#              #
-#    Updated: 2020/12/09 16:28:54 by tmarei           ###   ########.fr        #
+#    Updated: 2021/01/12 20:05:20 by tmarei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,8 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 
 # rules #
 all:
-	@mv $(HEADER) $(SRCDIR); cd $(SRCDIR); $(CC) -c $(SRC); ar rc $(NAME) $(OBJ); \
-	mv $(HEADER) ..; mv $(NAME) ..; mkdir ../obj; mv $(OBJ) ../obj
+	@mv ./includes/$(HEADER) $(SRCDIR); cd $(SRCDIR); $(CC) -c $(SRC); ar rc $(NAME) $(OBJ); \
+	mv $(HEADER) ../includes; mv $(NAME) ..; mkdir ../obj; mv $(OBJ) ../obj
 
 clean:
 	@rm -rf obj
